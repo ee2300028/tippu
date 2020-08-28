@@ -1,0 +1,26 @@
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<!-- A-Frame ライブラリの読み込み -->
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<!-- AR.js ライブラリの読み込み -->
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+</head>
+<body style='margin:0px; overflow:hidden;'>
+
+<a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
+
+ <a-assets>
+   <img id="siba" src="siba.png">
+ </a-assets>
+ 
+ <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
+  <a-marker preset="hiro">
+
+  <a-image src="#siba" position="0 0 0" rotation="-30 -30 0">
+
+  </a-marker>
+  <a-entity camera></a-entity>
+</a-scene>
+</body>
+</html>
