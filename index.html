@@ -7,9 +7,37 @@
 <body style='margin:0px; overflow:hidden;'>
 <a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
 
- <a-assets>
-   <img id="siba" src="siba.png">
- </a-assets>
+
+<a-assets>
+     <video id="video" src="anothervideo.mp4"></video>
+</a-assets>
+<a-videosphere src="#video"></a-videosphere>
+
+<script type="text/javascript">
+       var scene = document.querySelector("a-scene");
+       var vid = document.getElementById("video");
+
+       if (scene.hasLoaded) {
+         run();
+       } else {
+         scene.addEventListener("loaded", run);
+       }
+
+       function run () {
+           scene.querySelector(".a-enter-vr-button").addEventListener("click", function(e){
+               console.log("VR Mode entered");
+               this.style.display = "none";
+               vid.play();
+           }, false);
+       }
+</script>
+ 
+ 
+  <!-- <a-assets>-->
+   <!--  <img id="siba" src="siba.png">-->
+  <!-- </a-assets>-->
+ 
+ 
  
  <!-- マーカーを登録（プリセットされている「hiro」マーカー） -->
   <a-marker preset="hiro">
