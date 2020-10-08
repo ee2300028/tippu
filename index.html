@@ -7,12 +7,24 @@
 <body style='margin:0px; overflow:hidden;'>
 <a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
 
- <a-scene>
-  <a-assets>
-    <video src="ap.mp4" id="back_v" loop="ture"></video>
-  <a-assets>
-  <a-videosphere src='#back_v'></a-videosphere>
+<a-scene>
+<a-assets>
+     <video id="video" src="ap.mp4"></video>
+</a-assets>
+<a-video class="video" src="ap.mp4"></a-video>
+<a-videosphere class="video" src="#video></a-videosphere>
 </a-scene>
+
+<script>
+     function playVideo () {
+       var els = document.querySelectorAll('.video')
+       Array.prototype.slice.call(els).forEach(function(el) {
+         el.components.material.material.map.image.play()
+       })
+     }
+
+     document.querySelector('.a-enter-vr-button').addEventListener('click', playVideo)
+</script>
 
 
 
