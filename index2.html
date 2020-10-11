@@ -5,7 +5,7 @@
   <body style='margin : 0px; overflow: hidden;'>
     <a-assets>
 	    <video id="ar-video" muted="true" src="ap.m4v"</video>
-      <video id="ca-video" autoplay loop="true" muted="true" src="ca.m4v"</video>
+      <video id="ca-video" muted="true" src="ca.m4v"</video>
 	  </a-assets>
 	  <!-- デバッグ用の画面表示、VR用のボタンをそれぞれ非表示に -->
     <a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
@@ -19,9 +19,6 @@
 
       <a-camera position="0 0 5">
           <a-cursor id="cursor" color="gray" </a-cursor>
-      <!--         <a-cursor id="cursor" geometry="primitive: ring;
-               radiusOuter: 0.05; radiusInner: 0.03; segmentsTheta: 45"
-		     material="color: gray" cursor></a-cursor>-->
       </a-camera>
       <!-- <a-videosphere src="#ar-video" rotation="0 180 0"></a-videosphere>-->
       <a-entity video-controls="src:#ar-video"></a-entity>
@@ -31,6 +28,11 @@
     <script>
       window.addEventListener('click', function () {
       var v = document.querySelector('#ar-video');
+      v.play();
+      });
+
+      window.addEventListener('click', function () {
+      var v = document.querySelector('#ca-video');
       v.play();
       });
     </script>
